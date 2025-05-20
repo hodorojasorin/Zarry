@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.grid-helper {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100vh;
+    width: calc(74px * 12 + 32px * 11);
+    display: grid;
+    grid-template-columns: repeat(12, 74px);
+    column-gap: 32px;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.1;
+}
+
+.grid-helper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background-image: repeating-linear-gradient(to right,
+            red 0,
+            red 74px,
+            transparent 74px,
+            transparent calc(74px + 32px));
+}
