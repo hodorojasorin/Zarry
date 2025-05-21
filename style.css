@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-    padding: 0 300px;
+    padding: 0px 300px 50px 300px;
 }
 
 /* Header styles */
@@ -89,10 +89,58 @@ p {
     flex-direction: column;
     align-items: flex-start;
     gap: 14px;
-    max-width: 600px;
+    max-width: 400px;
 }
 
 .hero img {
-    max-width: 600px;
     height: auto;
+}
+
+/*Why us page*/
+.whyus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.whyustext {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    max-width: 525px;
+}
+
+.bold {
+    font-weight: var(--bold);
+}
+
+/*Blue section*/
+.blue {
+    height: 210px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background-color: var(--primary-blue);
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.btext{
+    max-width: 290px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+h2{
+    font-size: var(--h2-font-size);
+    font-weight: var(--bold);
+    color: var(--background-color);
+}
+
+.btext > p {
+    color: var(--background-color);
 }

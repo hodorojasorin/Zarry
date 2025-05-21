@@ -2,10 +2,12 @@
     /*Colors*/
     --primary-blue: #4A90E2;
     --paragraph-color: #101010;
+    --background-color: #f5f5f5;
 
     /*Font-size*/
     --heading-font-size: 44px;
     --paragraph-font-size: 16px;
+    --h2-font-size: 18px;
 
     /*Font-weights*/
     --thin: 100;
