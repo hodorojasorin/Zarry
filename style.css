@@ -1,319 +1,272 @@
- * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
 
-        body {
-            background-color: #f5f5f5;
-            overflow-x: hidden;
-        }
+body {
+    background-color: #f5f5f5;
+    overflow-x: hidden;
+}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+/* Header styles */
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px 0;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
 
-        /* Header styles */
-        header {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            padding: 20px 0;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+.main-menu {
+    display: flex;
+    margin-right: 70px;
+    align-items: center;
+}
 
-        .logo {
-            margin-right: auto;
-        }
-        
-        .logo img {
-            max-height: 50px;
-            width: auto;
-        }
+.logo {
+    margin-right: auto;
+}
 
-        nav {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-        }
+.logo img {
+    max-height: 50px;
+    width: auto;
+}
 
-        nav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-        }
+nav {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
 
-        .cta-button {
-            background-color: #5b8def;
-            color: white;
-            border: none;
-            border-radius: 50px;
-            padding: 12px 24px;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 400;
+}
 
-        .cta-button:hover {
-            background-color: #4a7bda;
-        }
-        
-        nav .mobile-cta-button {
-            display: none; /* Hidden by default, shown only in mobile view */
-        }
-        
-        .menu-toggle {
-            display: none;
-        }
+.cta-button {
+    background-color: #5b8def;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 21px;
-            cursor: pointer;
-        }
+.cta-button:hover {
+    background-color: #4a7bda;
+}
 
-        .menu-toggle span {
-            height: 3px;
-            width: 100%;
-            background-color: #5b8def;
-            border-radius: 3px;
-        }
+nav .mobile-cta-button {
+    display: none;
+    /* Hidden by default, shown only in mobile view */
+}
 
-        /* Hero section styles */
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 40px 0;
-            position: relative;
-            overflow: hidden;
-        }
+.menu-toggle {
+    display: none;
+}
 
-        .hero-content {
-            max-width: 500px;
-            z-index: 2;
-        }
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+}
 
-        .hero h1 {
-            font-size: 3.5rem;
-            color: #5b8def;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
+.menu-toggle span {
+    height: 3px;
+    width: 100%;
+    background-color: #5b8def;
+    border-radius: 3px;
+}
 
-        .hero p {
-            font-size: 1.1rem;
-            color: #333;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
+/* Hero section styles */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 0;
+    position: relative;
+    overflow: hidden;
+}
 
-        .hero-image {
-            position: relative;
-            width: 50%;
-            z-index: 2;
-            overflow: hidden; /* Hide overflow to prevent any thin lines */
-            border-radius: 12px; /* Optional: add slight rounding to image container */
-        }
+.hero-content {
+    max-width: 500px;
+    z-index: 2;
+}
 
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            display: block; /* Removes inline element spacing */
-            margin: 0; /* Reset any margin */
-            padding: 0; /* Reset any padding */
-        }
+.hero h1 {
+    font-size: 2.75rem;
+    color: #5b8def;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
 
-        /* Decorative bubbles */
-        .bubbles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
+.hero p {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
 
-        .bubble {
-            position: absolute;
-            background-color: rgba(91, 141, 239, 0.2);
-            border-radius: 50%;
-        }
+.hero-image {
+    position: relative;
+    width: 50%;
+    z-index: 2;
+    overflow: hidden;
+    /* Hide overflow to prevent any thin lines */
+    border-radius: 12px;
+    /* Optional: add slight rounding to image container */
+}
 
-        .bubble-1 {
-            width: 200px;
-            height: 200px;
-            top: 50px;
-            left: 100px;
-        }
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Removes inline element spacing */
+    margin: 0;
+    /* Reset any margin */
+    padding: 0;
+    /* Reset any padding */
+}
 
-        .bubble-2 {
-            width: 100px;
-            height: 100px;
-            top: 20px;
-            left: 150px;
-        }
+/* Decorative bubbles */
+.bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
 
-        .bubble-3 {
-            width: 150px;
-            height: 150px;
-            bottom: 100px;
-            left: 400px;
-        }
+.bubble {
+    position: absolute;
+    background-color: rgba(91, 141, 239, 0.2);
+    border-radius: 50%;
+}
 
-        .bubble-4 {
-            width: 120px;
-            height: 120px;
-            top: 300px;
-            left: 100px;
-        }
+.b1 {
+    width: 200px;
+    height: 200px;
+    top: 50px;
+    left: 100px;
+}
 
-        .bubble-5 {
-            width: 80px;
-            height: 80px;
-            bottom: 50px;
-            left: 200px;
-        }
+@media (max-width: 768px) {
+    header {
+        justify-content: space-between;
+    }
 
-        .bubble-6 {
-            width: 100px;
-            height: 100px;
-            top: 100px;
-            right: 150px;
-        }
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        cursor: pointer;
+        order: 3;
+    }
 
-        .bubble-7 {
-            width: 70px;
-            height: 70px;
-            bottom: 180px;
-            right: 100px;
-        }
+    .menu-toggle span {
+        height: 3px;
+        width: 100%;
+        background-color: #5b8def;
+        border-radius: 3px;
+    }
 
-        /* Responsive styles */
-        @media (max-width: 1024px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            .bubble-1, .bubble-3, .bubble-5 {
-                width: 150px;
-                height: 150px;
-            }
-            
-            .bubble-2, .bubble-4, .bubble-6 {
-                width: 80px;
-                height: 80px;
-            }
-        }
+    .desktop-cta-button {
+        display: none;
+        /* Hide the desktop button on mobile */
+    }
 
-        @media (max-width: 768px) {
-            header {
-                justify-content: space-between;
-            }
-            
-            .menu-toggle {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                width: 30px;
-                height: 21px;
-                cursor: pointer;
-                order: 3;
-            }
-            
-            .menu-toggle span {
-                height: 3px;
-                width: 100%;
-                background-color: #5b8def;
-                border-radius: 3px;
-            }
-            
-            .desktop-cta-button {
-                display: none; /* Hide the desktop button on mobile */
-            }
-            
-            nav {
-                flex-basis: 100%;
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.5s ease;
-                order: 4;
-                margin-top: 20px;
-            }
-            
-            nav.active {
-                max-height: 300px;
-                padding: 20px 0;
-            }
-            
-            nav .mobile-cta-button {
-                display: block;
-                margin-top: 10px;
-            }
-            
-            .hero {
-                flex-direction: column;
-            }
-            
-            .hero-content {
-                max-width: 100%;
-                text-align: center;
-                margin-bottom: 40px;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-image {
-                width: 80%;
-            }
-            
-            .bubble {
-                opacity: 0.5;
-            }
-        }
+    nav {
+        flex-basis: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+        order: 4;
+        margin-top: 20px;
+    }
 
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 2rem;
-            }
-            
-            header .cta-button {
-                font-size: 0.9rem;
-                padding: 10px 16px;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .hero-image {
-                width: 90%;
-            }
-            
-            .bubble-1, .bubble-3 {
-                width: 100px;
-                height: 100px;
-            }
-            
-            .bubble-2, .bubble-4 {
-                width: 60px;
-                height: 60px;
-            }
-        }
+    nav.active {
+        max-height: 300px;
+        padding: 20px 0;
+    }
+
+    nav .mobile-cta-button {
+        display: block;
+        margin-top: 10px;
+    }
+
+    .hero {
+        flex-direction: column;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-image {
+        width: 80%;
+    }
+
+    .bubble {
+        opacity: 0.5;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 2rem;
+    }
+
+    header .cta-button {
+        font-size: 0.9rem;
+        padding: 10px 16px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .hero-image {
+        width: 90%;
+    }
+
+    .bubble-1,
+    .bubble-3 {
+        width: 100px;
+        height: 100px;
+    }
+
+    .bubble-2,
+    .bubble-4 {
+        width: 60px;
+        height: 60px;
+    }
+}
