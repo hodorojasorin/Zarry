@@ -2,63 +2,45 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zarry - Learn to Code</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="root.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" />
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <img src="media/logo.svg" alt="logo">
-        </div>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <a href="index.html"><img src="media/logo.svg" alt="logo" /></a>
+            </div>
 
-        <nav id="mobileNav" class="main-menu">
-            <a href="#">Why us?</a>
-            <a href="#">Courses</a>
-            <a href="#">Instructors</a>
-            <a href="#">Reviews</a>
+            <nav id="mobileNav" class="main-menu">
+                <a href="#">Why us?</a>
+                <a href="#">Courses</a>
+                <a href="#">Instructors</a>
+                <a href="#">Reviews</a>
+            </nav>
+
             <button class="cta-button mobile-cta-button">Order a Lesson</button>
-        </nav>
+        </header>
+    </div>
 
-        <button class="cta-button desktop-cta-button">Order a Lesson</button>
-
-        <div class="menu-toggle" id="menuToggle">
-            <span></span>
-            <span></span>
-            <span></span>
+    <div class="container">
+        <div class="hero">
+            <div class="maintext">
+                <h1>Learn to code, Build the Future!</h1>
+                <p>Interactive online programming courses for kids and teens, designed to make learning fun, creative, and future-ready.</p>
+                <button class="cta-button mobile-cta-button">Start Learning Now</button>
+            </div>
+            <img src="media/mainkid.png" alt="mainkid">
         </div>
-    </header>
-
-
-    <section class="hero">
-        <div class="bubbles">
-            <div class="bubble b1"></div>
-            <div class="bubble b2"></div>
-            <div class="bubble b3"></div>
-            <div class="bubble b4"></div>
-        </div>
-    </section>
-
-    <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const mobileNav = document.getElementById('mobileNav');
-
-        menuToggle.addEventListener('click', () => {
-            mobileNav.classList.toggle('active');
-        });
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                mobileNav.classList.remove('active');
-            }
-        });
-    </script>
+    </div>
 </body>
 
 </html>

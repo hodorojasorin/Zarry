@@ -10,22 +10,18 @@ body {
     overflow-x: hidden;
 }
 
+.container {
+    padding: 0 300px;
+}
+
 /* Header styles */
 header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 20px 0;
-    flex-wrap: wrap;
     gap: 20px;
-    padding-left: 100px;
-    padding-right: 100px;
-}
-
-.main-menu {
-    display: flex;
-    margin-right: 70px;
-    align-items: center;
+    flex-wrap: wrap;
+    padding: 40px 0;
 }
 
 .logo {
@@ -41,12 +37,17 @@ nav {
     display: flex;
     gap: 40px;
     align-items: center;
+    margin-right: 70px;
 }
 
 nav a {
     text-decoration: none;
     color: #333;
     font-weight: 400;
+}
+
+nav a:hover {
+    color: var(--primary-blue);
 }
 
 .cta-button {
@@ -65,208 +66,32 @@ nav a {
     background-color: #4a7bda;
 }
 
-nav .mobile-cta-button {
-    display: none;
-    /* Hidden by default, shown only in mobile view */
+/* Hero Section */
+h1 {
+    font-size: 44px;
+    color: #5b8def;
 }
 
-.menu-toggle {
-    display: none;
+p {
+    font-size: 16px;
 }
 
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-    cursor: pointer;
-}
-
-.menu-toggle span {
-    height: 3px;
-    width: 100%;
-    background-color: #5b8def;
-    border-radius: 3px;
-}
-
-/* Hero section styles */
 .hero {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 40px 0;
-    position: relative;
-    overflow: hidden;
+    gap: 40px;
 }
 
-.hero-content {
-    max-width: 500px;
-    z-index: 2;
+.maintext {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    max-width: 600px;
 }
 
-.hero h1 {
-    font-size: 2.75rem;
-    color: #5b8def;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-
-.hero p {
-    font-size: 1.1rem;
-    color: #333;
-    line-height: 1.6;
-    margin-bottom: 30px;
-}
-
-.hero-image {
-    position: relative;
-    width: 50%;
-    z-index: 2;
-    overflow: hidden;
-    /* Hide overflow to prevent any thin lines */
-    border-radius: 12px;
-    /* Optional: add slight rounding to image container */
-}
-
-.hero-image img {
-    width: 100%;
+.hero img {
+    max-width: 600px;
     height: auto;
-    display: block;
-    /* Removes inline element spacing */
-    margin: 0;
-    /* Reset any margin */
-    padding: 0;
-    /* Reset any padding */
-}
-
-/* Decorative bubbles */
-.bubbles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
-.bubble {
-    position: absolute;
-    background-color: rgba(91, 141, 239, 0.2);
-    border-radius: 50%;
-}
-
-.b1 {
-    width: 200px;
-    height: 200px;
-    top: 50px;
-    left: 100px;
-}
-
-@media (max-width: 768px) {
-    header {
-        justify-content: space-between;
-    }
-
-    .menu-toggle {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 30px;
-        height: 21px;
-        cursor: pointer;
-        order: 3;
-    }
-
-    .menu-toggle span {
-        height: 3px;
-        width: 100%;
-        background-color: #5b8def;
-        border-radius: 3px;
-    }
-
-    .desktop-cta-button {
-        display: none;
-        /* Hide the desktop button on mobile */
-    }
-
-    nav {
-        flex-basis: 100%;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.5s ease;
-        order: 4;
-        margin-top: 20px;
-    }
-
-    nav.active {
-        max-height: 300px;
-        padding: 20px 0;
-    }
-
-    nav .mobile-cta-button {
-        display: block;
-        margin-top: 10px;
-    }
-
-    .hero {
-        flex-direction: column;
-    }
-
-    .hero-content {
-        max-width: 100%;
-        text-align: center;
-        margin-bottom: 40px;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-image {
-        width: 80%;
-    }
-
-    .bubble {
-        opacity: 0.5;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo {
-        font-size: 2rem;
-    }
-
-    header .cta-button {
-        font-size: 0.9rem;
-        padding: 10px 16px;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    .hero-image {
-        width: 90%;
-    }
-
-    .bubble-1,
-    .bubble-3 {
-        width: 100px;
-        height: 100px;
-    }
-
-    .bubble-2,
-    .bubble-4 {
-        width: 60px;
-        height: 60px;
-    }
 }
