@@ -1,5 +1,20 @@
 :root {
+    /*Colors*/
     --primary-blue: #4A90E2;
+    --paragraph-color: #101010;
+
+    /*Font-size*/
     --heading-font-size: 44px;
     --paragraph-font-size: 16px;
+
+    /*Font-weights*/
+    --thin: 100;
+    --extralight: 200;
+    --light: 300;
+    --regular: 400;
+    --medium: 500;
+    --semibold: 600;
+    --bold: 700;
+    --extrabold: 800;
+    --black: 900;
 }
