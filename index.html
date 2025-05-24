@@ -1,86 +1,923 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zarry - Learn to Code</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="root.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zarry - Learn to Code, Build the Future!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #6B9EFF;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #6B9EFF;
+        }
+
+        .order-btn {
+            background: #6B9EFF;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .order-btn:hover {
+            background: #5A8AE6;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            align-items: center;
+            padding: 6rem 2rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #6B9EFF;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .start-btn {
+            background: #6B9EFF;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .start-btn:hover {
+            background: #5A8AE6;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(107, 158, 255, 0.3);
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image-placeholder {
+            width: 400px;
+            height: 400px;
+            background: #6B9EFF;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Floating circles */
+        .circle {
+            position: absolute;
+            background: rgba(107, 158, 255, 0.3);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .circle:nth-child(1) { width: 80px; height: 80px; top: 10%; left: 10%; animation-delay: 0s; }
+        .circle:nth-child(2) { width: 120px; height: 120px; top: 20%; right: 15%; animation-delay: 1s; }
+        .circle:nth-child(3) { width: 60px; height: 60px; bottom: 30%; left: 20%; animation-delay: 2s; }
+        .circle:nth-child(4) { width: 100px; height: 100px; bottom: 20%; right: 10%; animation-delay: 3s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Why Us Section */
+        .why-us {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .why-us-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .why-us h2 {
+            font-size: 3rem;
+            color: #6B9EFF;
+            margin-bottom: 2rem;
+        }
+
+        .why-us-content p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .why-us-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .why-us-image-placeholder {
+            width: 350px;
+            height: 300px;
+            background: linear-gradient(135deg, #6B9EFF, #9BB5FF);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .stats-overlay {
+            position: absolute;
+            top: -20px;
+            right: -30px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .stats-overlay h3 {
+            font-size: 2.5rem;
+            color: #6B9EFF;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #6B9EFF, #5A8AE6);
+            padding: 4rem 2rem;
+            color: white;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Instructors Section */
+        .instructors {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            text-align: center;
+        }
+
+        .instructors h2 {
+            font-size: 3rem;
+            color: #6B9EFF;
+            margin-bottom: 1rem;
+        }
+
+        .instructors p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        .instructors-grid {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            justify-items: center;
+        }
+
+        .instructor {
+            width: 120px;
+            height: 120px;
+            background: #6B9EFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .instructor:hover {
+            transform: scale(1.1);
+        }
+
+        .apply-btn {
+            background: #6B9EFF;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .apply-btn:hover {
+            background: #5A8AE6;
+            transform: translateY(-3px);
+        }
+
+        /* Courses Section */
+        .courses {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .courses-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .course-card {
+            background: linear-gradient(135deg, #6B9EFF, #9BB5FF);
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            color: white;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .course-icon {
+            width: 80px;
+            height: 60px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 8px;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .course-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .course-card .age {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .course-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .course-features li {
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .course-price {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .book-btn {
+            background: white;
+            color: #6B9EFF;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .book-btn:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            text-align: center;
+        }
+
+        .reviews h2 {
+            font-size: 3rem;
+            color: #6B9EFF;
+            margin-bottom: 1rem;
+        }
+
+        .reviews-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .reviews-grid {
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .review-card {
+            background: rgba(107, 158, 255, 0.8);
+            padding: 2rem;
+            border-radius: 20px;
+            color: white;
+            text-align: left;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        .review-info h4 {
+            margin-bottom: 0.25rem;
+        }
+
+        .review-info .stars {
+            color: #FFD700;
+            margin-bottom: 0.25rem;
+        }
+
+        .review-info .date {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .review-text {
+            line-height: 1.6;
+        }
+
+        .leave-review-btn {
+            background: #6B9EFF;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .leave-review-btn:hover {
+            background: #5A8AE6;
+            transform: translateY(-3px);
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .newsletter-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 2.5rem;
+            color: #6B9EFF;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-content: center;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            max-width: 300px;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .newsletter-form input:focus {
+            border-color: #6B9EFF;
+        }
+
+        .subscribe-btn {
+            background: #6B9EFF;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .subscribe-btn:hover {
+            background: #5A8AE6;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #6B9EFF, #5A8AE6);
+            color: white;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .payment-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .payment-icon {
+            width: 50px;
+            height: 30px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-container,
+            .why-us-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .stats-container,
+            .courses-container,
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .instructors-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .newsletter-form input {
+                max-width: 100%;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Section spacing */
+        section {
+            scroll-margin-top: 80px;
+        }
+    </style>
 </head>
-
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">
-                <a href="index.html"><img src="media/logo.svg" alt="logo" /></a>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo"><img src="media/logo.svg" alt=""></a>
+            <ul class="nav-menu">
+                <li><a href="#why-us" class="nav-link">Why us?</a></li>
+                <li><a href="#courses" class="nav-link">Courses</a></li>
+                <li><a href="#instructors" class="nav-link">Instructors</a></li>
+                <li><a href="#reviews" class="nav-link">Reviews</a></li>
+            </ul>
+            <a href="#courses" class="order-btn">Order a Lesson</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Learn to code,<br>Build the Future!</h1>
+                <p>Interactive online programming courses for kids and teens, designed to make learning fun, creative, and future-ready.</p>
+                <button class="start-btn" onclick="scrollToSection('courses')">Start Learning Now</button>
             </div>
-
-            <nav id="mobileNav" class="main-menu">
-                <a href="#">Why us?</a>
-                <a href="#">Courses</a>
-                <a href="#">Instructors</a>
-                <a href="#">Reviews</a>
-            </nav>
-
-            <button class="cta-button mobile-cta-button">Order a Lesson</button>
-        </header>
-    </div>
-
-    <!--Hero-section-->
-    <div class="container">
-        <div class="hero">
-            <div class="maintext">
-                <h1>Learn to code, Build the Future!</h1>
-                <p>Interactive online programming courses for kids and teens, designed to make learning fun, creative,
-                    and future-ready.</p>
-                <button class="cta-button mobile-cta-button">Start Learning Now</button>
+            <div class="hero-image">
+                    <img src="media/mainkid.png" alt="">
             </div>
-            <img src="media/mainkid.png" alt="mainkid">
-        </div>
-    </div>
-
-    <!--Why us?-->
-    <div class="container">
-        <div class="whyus">
-            <div class="whyustext">
-                <h1>Why us?</h1>
-                <p>Why Zarry? simply because <span class="bold">we make coding fun, simple, and exciting for kids and teens of all ages.</span><br><br>
-                    Our platform is designed to feel like a playground for your imagination. No boring lectures here —
-                    just colorful lessons, creative challenges. You'll learn how to think like a programmer, solve
-                    problems like an inventor, and express yourself like a digital artist.<br><br> That's why Zarry is more than
-                    just a course — it's a community, a launchpad, and a space where your ideas come to life.<br>
-                    <span class="bold">Join us, and let's build the future together</span>— one line of code at a time.</p>
-            </div>
-            <img src="media/whyuscard.png" alt="card">
-        </div>
-    </div>
-
-    <!--Blue section-->
-    <section class="blue">
-        <div class="btext">
-            <h2>8000 Students</h2>
-            <p>Trusted by over 8000 young learners worldwide. Join a global community of future coders!</p>
-        </div>
-        <div class="btext">
-            <h2>3 Main Courses</h2>
-            <p>Our three-level course path grows with you, step by step, from beginner to future tech pro.</p>
-        </div>
-        <div class="btext">
-            <h2>Support That Cares</h2>
-            <p>With friendly mentors who truly care, help is always within reach, just a message away.</p>
         </div>
     </section>
 
+    <!-- Why Us Section -->
+    <section id="why-us" class="why-us">
+        <div class="why-us-container">
+            <div class="why-us-content">
+                <h2>Why us?</h2>
+                <p>Why Zarry? simply because <span class="highlight">we make coding fun, simple, and exciting for kids and teens of all ages.</span></p>
+                
+                <p>Our platform is designed to feel like a playground for your imagination. No boring lectures here — just colorful lessons, creative challenges. You'll learn how to think like a programmer, solve problems like an inventor, and express yourself like a digital artist.</p>
+                
+                <p>That's why Zarry is more than just a course — it's a community, a launchpad, and a space where your ideas come to life.</p>
+                <p><span class="highlight">Join us, and let's build the future together</span> — one line of code at a time.</p>
+            </div>
+            <div class="why-us-image">
+                <div class="why-us-image-placeholder">
+                    [Why Us Image Placeholder - Smiling student]
+                    <div class="stats-overlay">
+                        <h3>120+</h3>
+                        <p>Professional<br>Teachers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!--Courses cards-->
-    <div class="container">
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3>8000 Students</h3>
+                <p>Trusted by over 8000 young learners worldwide. Join a global community of future coders!</p>
+            </div>
+            <div class="stat-item">
+                <h3>3 Main courses</h3>
+                <p>Our three-level course path grows with you, step by step, from beginner to future tech pro.</p>
+            </div>
+            <div class="stat-item">
+                <h3>Support That Cares</h3>
+                <p>With friendly mentors who truly care, help is always within reach, just a message away.</p>
+            </div>
+        </div>
+    </section>
 
-    </div>
-</body>
+    <!-- Instructors Section -->
+    <section id="instructors" class="instructors">
+        <h2>Instructors</h2>
+        <p>Want to be an instructor? apply down below.</p>
+        
+        <div class="instructors-grid">
+            <div class="instructor">[Instructor 1]</div>
+            <div class="instructor">[Instructor 2]</div>
+            <div class="instructor">[Instructor 3]</div>
+            <div class="instructor">[Instructor 4]</div>
+            <div class="instructor">[Instructor 5]</div>
+            <div class="instructor">[Instructor 6]</div>
+        </div>
+        
+        <button class="apply-btn">Apply to teach</button>
+    </section>
 
-</html>
+    <!-- Courses Section -->
+    <section id="courses" class="courses">
+        <div class="courses-container">
+            <div class="course-card">
+                <div class="course-icon">💻</div>
+                <h3>Code Quest</h3>
+                <div class="age">7 - 11 years old</div>
+                <ul class="course-features">
+                    <li>Visual, block-based coding</li>
+                    <li>Create stories & games</li>
+                    <li>Build creativity</li>
+                    <li>Fun, friendly intro</li>
+                </ul>
+                <div class="course-price">$19 / lesson</div>
+                <button class="book-btn">Book a Lesson</button>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-icon">🖥️</div>
+                <h3>Level Code</h3>
+                <div class="age">12 - 14 years old</div>
+                <ul class="course-features">
+                    <li>Real text-based programming</li>
+                    <li>Hands-on coding challenges</li>
+                    <li>Bridge to advanced skills</li>
+                    <li>Great mix of fun and logic</li>
+                </ul>
+                <div class="course-price">$29 / lesson</div>
+                <button class="book-btn">Book a Lesson</button>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-icon">🌐</div>
+                <h3>Code Craft</h3>
+                <div class="age">15 - 17 years old</div>
+                <ul class="course-features">
+                    <li>Real-world web development</li>
+                    <li>Code with HTML, CSS & JS</li>
+                    <li>Build interactive sites & apps</li>
+                    <li>Ideal for portfolios</li>
+                </ul>
+                <div class="course-price">$39 / lesson</div>
+                <button class="book-btn">Book a Lesson</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews">
+        <h2>Zarry Voices</h2>
+        <p class="reviews-subtitle">At Zarry, we believe <strong>the best feedback comes from those who've lived the experience.</strong> From building their first games to launching real websites, our young coders share how fun, easy, and exciting learning to program can be. Read their stories, reviews, and proud moments — and get inspired to start your own journey!</p>
+        
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">[Avatar]</div>
+                    <div class="review-info">
+                        <h4>Everna Andreea</h4>
+                        <div class="stars">★★★★★</div>
+                        <div class="date">3 days ago</div>
+                    </div>
+                </div>
+                <p class="review-text">I made my own game and showed it to all my friends! The challenges are hard, but in a good way. It's fun, not boring like school stuff.</p>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">[Avatar]</div>
+                    <div class="review-info">
+                        <h4>Sebastian Anvarro</h4>
+                        <div class="stars">★★★★★</div>
+                        <div class="date">2 weeks ago</div>
+                    </div>
+                </div>
+                <p class="review-text">Coding is way cooler than I thought! I love how the lessons feel like mini adventures. I finally understand what a function does — and it's fun!</p>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">[Avatar]</div>
+                    <div class="review-info">
+                        <h4>Eduardo Felugi</h4>
+                        <div class="stars">★★★★★</div>
+                        <div class="date">1 month ago</div>
+                    </div>
+                </div>
+                <p class="review-text">I used to think coding was hard, but now I actually look forward to it! I made my own quiz game and even added sound effects — it feels like magic!</p>
+            </div>
+        </div>
+        
+        <button class="leave-review-btn">Leave a review</button>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="newsletter-container">
+            <h2>Subscribe to our newsletter</h2>
+            <p>Subscribe to our newsletter and be the first to get exclusive <strong>promo codes, early access to new courses, and fun coding tips!</strong> Whether you're a beginner or already coding, our surprises are too good to miss.</p>
+            
+            <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                <input type="email" placeholder="Email address" required>
+                <button type="submit" class="subscribe-btn">Subscribe</button>
+            </form>
+            <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">You can unsubscribe from the newsletter at any time.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3 class="logo" style="color: white; margin-bottom: 1rem;">Zarry</h3>
+                <p>© Copyright. All rights reserved.</p>
+                <div class="payment-icons">
+                    <div class="payment-icon">MC</div>
+                    <div class="payment-icon">💳</div>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>ABOUT COMPANY</h3>
+                <a href="#">hello@zarrycoding.com</a>
+                <a href="#">3rd Flooren Street, LA</a>
+                <a href="#">+123 456 789</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>OUR SERVICES</h3>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Careers</a>
+                <a href="#">FAQ</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>
