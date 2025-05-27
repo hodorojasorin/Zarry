@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zarry - Learn to Code, Build the Future!</title>
     <style>
+        :root {
+            --primary-color: #6B9EFF;
+            --secondary-color: #5A8AE6;
+            --text-color: #333;
+            --light-text-color: #666;
+            --background-color: #F5F5F5;
+            --white-color: #f5f5f5;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -15,8 +24,8 @@
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #F5F5F5;
+            color: var(--text-color);
+            background-color: var(--background-color);
             overflow-x: hidden;
         }
 
@@ -26,7 +35,7 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.95);
+            background-color: rgba(245, 245, 245, 0.9);
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 1rem 0;
@@ -40,13 +49,21 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 2rem;
+            position: relative; /* Needed for absolute positioning of mobile menu */
         }
 
         .logo {
             font-size: 2rem;
             font-weight: bold;
-            color: #6B9EFF;
+            color: var(--primary-color);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px; /* Adjust logo size */
+            margin-right: 5px;
         }
 
         .nav-menu {
@@ -57,7 +74,7 @@
 
         .nav-menu a {
             text-decoration: none;
-            color: #333;
+            color: var(--text-color);
             font-weight: 500;
             transition: color 0.3s ease;
             cursor: pointer;
@@ -65,12 +82,12 @@
 
         .nav-menu a:hover,
         .nav-menu a.active {
-            color: #6B9EFF;
+            color: var(--primary-color);
         }
 
         .order-btn {
-            background: #6B9EFF;
-            color: white;
+            background: var(--primary-color);
+            color: var(--white-color);
             padding: 0.75rem 1.5rem;
             border: none;
             border-radius: 25px;
@@ -82,8 +99,17 @@
         }
 
         .order-btn:hover {
-            background: #5A8AE6;
+            background: var(--secondary-color);
             transform: translateY(-2px);
+        }
+
+        /* Hamburger Menu Styles */
+        .burger-menu {
+            display: none; /* Hidden by default */
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--primary-color);
+            z-index: 1001; /* Ensure it's above other elements */
         }
 
         /* Hero Section */
@@ -91,9 +117,10 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 6rem 2rem 2rem;
+            padding: 8rem 2rem 2rem; /* Adjusted top padding for fixed header */
             position: relative;
             overflow: hidden;
+            background-color: var(--background-color);
         }
 
         .hero-container {
@@ -108,21 +135,21 @@
         .hero-content h1 {
             font-size: 3.5rem;
             font-weight: bold;
-            color: #6B9EFF;
+            color: var(--primary-color);
             margin-bottom: 1rem;
             line-height: 1.2;
         }
 
         .hero-content p {
             font-size: 1.1rem;
-            color: #666;
+            color: var(--light-text-color);
             margin-bottom: 2rem;
             max-width: 500px;
         }
 
         .start-btn {
-            background: #6B9EFF;
-            color: white;
+            background: var(--primary-color);
+            color: var(--white-color);
             padding: 1rem 2rem;
             border: none;
             border-radius: 25px;
@@ -133,37 +160,15 @@
         }
 
         .start-btn:hover {
-            background: #5A8AE6;
+            background: var(--secondary-color);
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(107, 158, 255, 0.3);
-        }
-
-        .hero-image {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-image-placeholder {
-            width: 400px;
-            height: 400px;
-            background: #6B9EFF;
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
         }
 
         /* Floating circles */
         .circle {
             position: absolute;
-            background: rgba(107, 158, 255, 0.3);
+            background: rgba(107, 158, 255, 0.15); /* Lighter opacity */
             border-radius: 50%;
             animation: float 6s ease-in-out infinite;
         }
@@ -171,7 +176,7 @@
         .circle:nth-child(1) {
             width: 80px;
             height: 80px;
-            top: 10%;
+            top: 30%;
             left: 10%;
             animation-delay: 0s;
         }
@@ -179,24 +184,24 @@
         .circle:nth-child(2) {
             width: 120px;
             height: 120px;
-            top: 20%;
+            top: 30%;
             right: 15%;
             animation-delay: 1s;
         }
 
         .circle:nth-child(3) {
-            width: 60px;
-            height: 60px;
-            bottom: 30%;
+            width: 90px;
+            height: 90px;
+            bottom: 10%;
             left: 20%;
             animation-delay: 2s;
         }
 
         .circle:nth-child(4) {
-            width: 100px;
-            height: 100px;
-            bottom: 20%;
-            right: 10%;
+            width: 130px;
+            height: 130px;
+            bottom: 10%;
+            right: 65%;
             animation-delay: 3s;
         }
 
@@ -215,6 +220,7 @@
         /* Why Us Section */
         .why-us {
             padding: 6rem 2rem;
+            background-color: var(--white-color);
         }
 
         .why-us-container {
@@ -228,19 +234,19 @@
 
         .why-us h2 {
             font-size: 3rem;
-            color: #6B9EFF;
+            color: var(--primary-color);
             margin-bottom: 2rem;
         }
 
         .why-us-content p {
             font-size: 1.1rem;
-            color: #666;
+            color: var(--light-text-color);
             margin-bottom: 1.5rem;
         }
 
         .highlight {
             font-weight: bold;
-            color: #333;
+            color: var(--text-color);
         }
 
         .why-us-image {
@@ -250,42 +256,15 @@
             align-items: center;
         }
 
-        .why-us-image-placeholder {
-            width: 350px;
-            height: 300px;
-            background: linear-gradient(135deg, #6B9EFF, #9BB5FF);
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.1rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .stats-overlay {
-            position: absolute;
-            top: -20px;
-            right: -30px;
-            background: white;
-            padding: 1.5rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .stats-overlay h3 {
-            font-size: 2.5rem;
-            color: #6B9EFF;
-            margin-bottom: 0.5rem;
+        .why-us-image-placeholder img {
+            max-width: 100%;
         }
 
         /* Stats Section */
         .stats {
-            background: linear-gradient(135deg, #6B9EFF, #5A8AE6);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             padding: 4rem 2rem;
-            color: white;
+            color: var(--white-color);
         }
 
         .stats-container {
@@ -298,7 +277,7 @@
         }
 
         .stat-item h3 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 1rem;
         }
 
@@ -312,23 +291,24 @@
             padding: 8rem 2rem 6rem;
             position: relative;
             overflow: hidden;
+            background-color: var(--background-color);
         }
 
         .instructors-container {
             max-width: 1200px;
             margin: 0 auto;
             position: relative;
-            height: 600px;
+            height: 600px; /* Needs adjustment for smaller screens */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            text-align: center;
         }
 
         .instructors h2 {
             font-size: 4rem;
-            color: #6B9EFF;
-            text-align: center;
+            color: var(--primary-color);
             margin-bottom: 1rem;
             position: relative;
             z-index: 10;
@@ -336,8 +316,7 @@
 
         .instructors-subtitle {
             font-size: 1.2rem;
-            color: #666;
-            text-align: center;
+            color: var(--light-text-color);
             margin-bottom: 3rem;
             position: relative;
             z-index: 10;
@@ -347,14 +326,12 @@
             position: absolute;
             border-radius: 50%;
             overflow: hidden;
-            background-color: transparent;
             transition: all 0.4s ease;
             animation: floatInstructors 8s ease-in-out infinite;
         }
 
         .instructor-circle:hover {
             transform: scale(1.1);
-            box-shadow: 0 20px 40px rgba(107, 158, 255, 0.4);
         }
 
         .instructor-circle img {
@@ -369,15 +346,15 @@
             height: 230px;
             top: 30px;
             left: 100px;
-            animation-delay: 0s;
+            animation-delay: 4s;
         }
 
         .instructor-2 {
             width: 180px;
             height: 180px;
-            top: 80px;
-            right: 150px;
-            animation-delay: 1s;
+            top: 0px;
+            right: 270px;
+            animation-delay: 4s;
         }
 
         .instructor-3 {
@@ -391,7 +368,7 @@
         .instructor-4 {
             width: 140px;
             height: 140px;
-            top: 250px;
+            top: 190px;
             right: 60px;
             animation-delay: 3s;
         }
@@ -413,31 +390,44 @@
         }
 
         .instructor-7 {
-            width: 90px;
-            height: 90px;
-            bottom: 250px;
-            left: 200px;
+            width: 150px;
+            height: 150px;
+            bottom: 500px; /* This needs to be relative or adjusted for height */
+            left: 400px;
             animation-delay: 6s;
         }
 
         .instructor-8 {
             width: 130px;
             height: 130px;
-            bottom: 180px;
-            right: 200px;
+            bottom: 10px;
+            right: 290px;
             animation-delay: 7s;
         }
 
         @keyframes floatInstructors {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            25% { transform: translateY(-15px) rotate(2deg); }
-            50% { transform: translateY(-5px) rotate(-2deg); }
-            75% { transform: translateY(-10px) rotate(1deg); }
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            25% {
+                transform: translateY(-15px) rotate(2deg);
+            }
+
+            50% {
+                transform: translateY(-5px) rotate(-2deg);
+            }
+
+            75% {
+                transform: translateY(-10px) rotate(1deg);
+            }
         }
 
         .apply-btn {
-            background: #6B9EFF;
-            color: white;
+            background: var(--primary-color);
+            color: var(--white-color);
             padding: 1rem 2rem;
             border: none;
             border-radius: 25px;
@@ -451,7 +441,7 @@
         }
 
         .apply-btn:hover {
-            background: #5A8AE6;
+            background: var(--secondary-color);
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(107, 158, 255, 0.3);
         }
@@ -459,6 +449,7 @@
         /* Courses Section */
         .courses {
             padding: 6rem 2rem;
+            background-color: var(--white-color);
         }
 
         .courses-container {
@@ -470,16 +461,18 @@
         }
 
         .course-card {
-            background: linear-gradient(135deg, #6B9EFF, #9BB5FF);
+            background: linear-gradient(135deg, var(--primary-color), #9BB5FF);
             padding: 3rem 2rem;
             border-radius: 25px;
-            color: white;
+            color: var(--white-color);
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .course-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(107, 158, 255, 0.3);
         }
 
         .course-icon {
@@ -522,8 +515,8 @@
         }
 
         .book-btn {
-            background: white;
-            color: #6B9EFF;
+            background: var(--white-color);
+            color: var(--primary-color);
             padding: 0.75rem 2rem;
             border: none;
             border-radius: 25px;
@@ -541,17 +534,18 @@
         .reviews {
             padding: 6rem 2rem;
             text-align: center;
+            background-color: var(--background-color);
         }
 
         .reviews h2 {
             font-size: 3rem;
-            color: #6B9EFF;
+            color: var(--primary-color);
             margin-bottom: 1rem;
         }
 
         .reviews-subtitle {
             font-size: 1.1rem;
-            color: #666;
+            color: var(--light-text-color);
             margin-bottom: 3rem;
             max-width: 600px;
             margin-left: auto;
@@ -570,8 +564,9 @@
             background: rgba(107, 158, 255, 0.8);
             padding: 2rem;
             border-radius: 20px;
-            color: white;
+            color: var(--white-color);
             text-align: left;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
         }
 
         .review-header {
@@ -589,6 +584,13 @@
             align-items: center;
             justify-content: center;
             font-size: 0.8rem;
+            overflow: hidden; /* Ensure image stays within circle */
+        }
+        
+        .review-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .review-info h4 {
@@ -610,8 +612,8 @@
         }
 
         .leave-review-btn {
-            background: #6B9EFF;
-            color: white;
+            background: var(--primary-color);
+            color: var(--white-color);
             padding: 1rem 2rem;
             border: none;
             border-radius: 25px;
@@ -622,14 +624,14 @@
         }
 
         .leave-review-btn:hover {
-            background: #5A8AE6;
+            background: var(--secondary-color);
             transform: translateY(-3px);
         }
 
         /* Newsletter Section */
         .newsletter {
             padding: 4rem 2rem;
-            background: white;
+            background-color: var(--white-color);
         }
 
         .newsletter-container {
@@ -640,7 +642,7 @@
 
         .newsletter h2 {
             font-size: 2.5rem;
-            color: #6B9EFF;
+            color: var(--primary-color);
             margin-bottom: 1rem;
         }
 
@@ -649,10 +651,12 @@
             gap: 1rem;
             margin-top: 2rem;
             justify-content: center;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
         }
 
         .newsletter-form input {
             flex: 1;
+            min-width: 250px; /* Ensure input is not too small */
             max-width: 300px;
             padding: 1rem;
             border: 2px solid #e0e0e0;
@@ -662,12 +666,12 @@
         }
 
         .newsletter-form input:focus {
-            border-color: #6B9EFF;
+            border-color: var(--primary-color);
         }
 
         .subscribe-btn {
-            background: #6B9EFF;
-            color: white;
+            background: var(--primary-color);
+            color: var(--white-color);
             padding: 1rem 2rem;
             border: none;
             border-radius: 25px;
@@ -677,14 +681,14 @@
         }
 
         .subscribe-btn:hover {
-            background: #5A8AE6;
+            background: var(--secondary-color);
             transform: translateY(-2px);
         }
 
         /* Footer */
         .footer {
-            background: linear-gradient(135deg, #6B9EFF, #5A8AE6);
-            color: white;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white-color);
             padding: 3rem 2rem 2rem;
         }
 
@@ -710,12 +714,12 @@
         }
 
         .footer-section a:hover {
-            color: white;
+            color: var(--white-color);
         }
 
         .social-icons {
             display: flex;
-            gap: 5px;
+            gap: 10px;
             margin-top: 1rem;
         }
 
@@ -727,7 +731,13 @@
             align-items: center;
             justify-content: center;
             transition: background 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
         }
+        .social-icon img {
+            width: 24px; /* Adjust icon size */
+            height: 24px;
+        }
+
 
         .social-icon:hover {
             background: rgba(255, 255, 255, 0.3);
@@ -735,7 +745,7 @@
 
         .payment-icons {
             display: flex;
-            gap: 35px;
+            gap: 15px; /* Reduced gap */
             margin-top: 1rem;
         }
 
@@ -747,7 +757,14 @@
             align-items: center;
             justify-content: center;
             font-size: 0.8rem;
+            background: rgba(255, 255, 255, 0.1); /* Added background for visibility */
         }
+        .payment-icon img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
 
         .footer-bottom {
             text-align: center;
@@ -758,34 +775,164 @@
         }
 
         /* Mobile Responsiveness */
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .nav-menu {
-                display: none;
+                gap: 1rem;
             }
 
             .hero-container,
             .why-us-container {
                 grid-template-columns: 1fr;
+                gap: 2rem;
                 text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-image, .why-us-image {
+                order: -1; /* Puts image above content on smaller screens */
+            }
+
+            .hero-image img, .why-us-image-placeholder img {
+                max-width: 80%;
+                height: auto;
+            }
+
+            .stats-container,
+            .courses-container,
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            
+            .course-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .instructors-container {
+                height: 400px; /* Adjust height for smaller screens */
+            }
+            .instructors h2 {
+                font-size: 3rem;
+            }
+
+            /* Adjust instructor circle sizes and positions for tablets */
+            .instructor-1 { width: 180px; height: 180px; top: 20px; left: 5%; }
+            .instructor-2 { width: 140px; height: 140px; top: 0px; right: 5%; }
+            .instructor-3 { width: 120px; height: 120px; bottom: 20px; left: 10%; }
+            .instructor-4 { width: 100px; height: 100px; top: 150px; right: 10%; }
+            .instructor-5 { width: 120px; height: 120px; bottom: 50px; left: 40%; }
+            .instructor-6 { width: 120px; height: 120px; bottom: 80px; right: 5%; }
+            .instructor-7 { width: 110px; height: 110px; top: 50px; left: 30%; }
+            .instructor-8 { width: 90px; height: 90px; bottom: 30px; right: 30%; }
+
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .newsletter-form {
+                flex-direction: row; /* Keep it row if possible */
+                justify-content: center;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .nav-menu,
+            .order-btn {
+                display: none; /* Hide default nav and button */
+            }
+
+            .burger-menu {
+                display: block; /* Show burger menu */
+                order: -1; /* Place it before the logo */
+            }
+
+            .nav-container {
+                flex-wrap: wrap; /* Allow items to wrap */
+                justify-content: space-between; /* Space out burger and logo */
+                align-items: flex-start; /* Align items to the start when wrapped */
+            }
+
+            .nav-menu.active {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                background-color: rgba(245, 245, 245, 0.95);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                position: absolute;
+                top: 100%; /* Position below the header */
+                left: 0;
+                padding: 1rem 2rem;
+                gap: 1rem;
+                border-top: 1px solid #eee;
+            }
+
+            .nav-menu.active + .order-btn { /* Selects the order-btn immediately following .nav-menu.active */
+                display: block;
+                width: calc(100% - 4rem); /* Account for padding */
+                margin: 0 2rem 1rem; /* Add margin below menu */
+                text-align: center;
+            }
+
+
+            .logo {
+                font-size: 1.8rem;
+                flex-grow: 1; /* Allow logo to take available space */
+                text-align: center;
+                justify-content: center;
+            }
+            .nav-container .logo {
+                margin-right: 0; /* Remove margin from logo in mobile header */
+            }
+
+
+            .hero {
+                padding-top: 6rem; /* Less padding on small screens */
             }
 
             .hero-content h1 {
                 font-size: 2.5rem;
             }
 
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .start-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .why-us h2, .reviews h2 {
+                font-size: 2.5rem;
+            }
+
             .stats-container,
             .courses-container,
             .reviews-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Single column layout */
             }
 
-            .instructors-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .instructor-circle {
+                display: none; /* Hide instructor circles on very small screens to simplify layout */
+            }
+            .instructors-container {
+                height: auto; /* Allow height to adjust */
+                padding-bottom: 2rem;
+            }
+            .instructors h2 {
+                font-size: 2.5rem;
+            }
+            .instructors-subtitle {
+                font-size: 1rem;
+            }
+            .apply-btn {
+                margin-top: 1rem;
             }
 
-            .footer-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
 
             .newsletter-form {
                 flex-direction: column;
@@ -794,8 +941,85 @@
 
             .newsletter-form input {
                 max-width: 100%;
+                width: 100%; /* Take full width */
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr; /* Single column for footer */
+                text-align: center;
+            }
+
+            .footer-section {
+                margin-bottom: 1.5rem;
+            }
+            .social-icons, .payment-icons {
+                justify-content: center;
             }
         }
+
+        /* Extra small devices (portrait phones, less than 576px) */
+        @media (max-width: 576px) {
+            .nav-container {
+                flex-direction: row; /* Keep as row for burger and logo */
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .logo {
+                font-size: 1.6rem;
+                margin-bottom: 0;
+            }
+            
+            .order-btn {
+                padding: 0.6rem 1.2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .hero-image img {
+                max-width: 90%;
+            }
+
+            .why-us h2, .reviews h2 {
+                font-size: 2rem;
+            }
+
+            .stat-item h3 {
+                font-size: 1.8rem;
+            }
+            .stat-item p {
+                font-size: 1rem;
+            }
+
+            .course-card {
+                padding: 2rem 1rem;
+            }
+            .course-card h3 {
+                font-size: 1.5rem;
+            }
+            .course-price {
+                font-size: 1.8rem;
+            }
+
+            .review-card {
+                padding: 1.5rem;
+            }
+            .review-info h4 {
+                font-size: 1rem;
+            }
+            .review-info .stars {
+                font-size: 0.9rem;
+            }
+            .review-text {
+                font-size: 0.9rem;
+            }
+
+            .newsletter h2 {
+                font-size: 2rem;
+            }
+        }
+
 
         /* Smooth scrolling */
         html {
@@ -804,27 +1028,27 @@
 
         /* Section spacing */
         section {
-            scroll-margin-top: 80px;
+            scroll-margin-top: 80px; /* Offset for fixed header */
         }
     </style>
 </head>
 
 <body>
-    <!-- Header -->
     <header class="header">
         <nav class="nav-container">
-            <a href="#" class="logo"><img src="media/logo.svg" alt=""></a>
-            <ul class="nav-menu">
+            <div class="burger-menu" id="burger-menu">
+                &#9776; </div>
+            <a href="#" class="logo"><img src="media/logo.svg" alt="Zarry Logo"></a>
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="#why-us" class="nav-link">Why us?</a></li>
                 <li><a href="#courses" class="nav-link">Courses</a></li>
                 <li><a href="#instructors" class="nav-link">Instructors</a></li>
                 <li><a href="#reviews" class="nav-link">Reviews</a></li>
             </ul>
-            <a href="#courses" class="order-btn">Order a Lesson</a>
+            <a href="#courses" class="order-btn" id="order-btn">Order a Lesson</a>
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section id="hero" class="hero">
         <div class="circle"></div>
         <div class="circle"></div>
@@ -839,12 +1063,11 @@
                 <button class="start-btn" onclick="scrollToSection('courses')">Start Learning Now</button>
             </div>
             <div class="hero-image">
-                <img src="media/home boy.svg" alt="">
+                <img src="media/home boy.svg" alt="Boy coding on a laptop">
             </div>
         </div>
     </section>
 
-    <!-- Why Us Section -->
     <section id="why-us" class="why-us">
         <div class="why-us-container">
             <div class="why-us-content">
@@ -863,13 +1086,12 @@
             </div>
             <div class="why-us-image">
                 <div class="why-us-image-placeholder">
-                    <img src="media/whyuscard.png" alt="">
+                    <img src="media/whyuscard.png" alt="Kids collaborating and learning">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
     <section class="stats">
         <div class="stats-container">
             <div class="stat-item">
@@ -887,52 +1109,6 @@
         </div>
     </section>
 
-    <!-- Instructors Section -->
-    <section id="instructors" class="instructors">
-        <div class="instructors-container">
-            <!-- Instructor circles positioned around the text -->
-            <div class="instructor-circle instructor-1">
-                <img src="media/i1.png"
-                    alt="Instructor 1">
-            </div>
-            <div class="instructor-circle instructor-2">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face"
-                    alt="Instructor 2">
-            </div>
-            <div class="instructor-circle instructor-3">
-                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face"
-                    alt="Instructor 3">
-            </div>
-            <div class="instructor-circle instructor-4">
-                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face"
-                    alt="Instructor 4">
-            </div>
-            <div class="instructor-circle instructor-5">
-                <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=200&h=200&fit=crop&crop=face"
-                    alt="Instructor 5">
-            </div>
-            <div class="instructor-circle instructor-6">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=face"
-                    alt="Instructor 6">
-            </div>
-            <div class="instructor-circle instructor-7">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=face"
-                    alt="Instructor 7">
-            </div>
-            <div class="instructor-circle instructor-8">
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop&crop=face"
-                    alt="Instructor 8">
-            </div>
-
-            <!-- Central content -->
-            <h2>Instructors</h2>
-            <p class="instructors-subtitle">Want to be an instructor? Apply down below.</p>
-            <button class="apply-btn">Apply to teach</button>
-        </div>
-    </section>
-
-
-    <!-- Courses Section -->
     <section id="courses" class="courses">
         <div class="courses-container">
             <div class="course-card">
@@ -979,7 +1155,46 @@
         </div>
     </section>
 
-    <!-- Reviews Section -->
+    <section id="instructors" class="instructors">
+        <div class="instructors-container">
+            <div class="instructor-circle instructor-1">
+                <img src="media/i1.png" alt="Instructor 1">
+            </div>
+            <div class="instructor-circle instructor-2">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face"
+                    alt="Instructor 2">
+            </div>
+            <div class="instructor-circle instructor-3">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face"
+                    alt="Instructor 3">
+            </div>
+            <div class="instructor-circle instructor-4">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face"
+                    alt="Instructor 4">
+            </div>
+            <div class="instructor-circle instructor-5">
+                <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=200&h=200&fit=crop&crop=face"
+                    alt="Instructor 5">
+            </div>
+            <div class="instructor-circle instructor-6">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=face"
+                    alt="Instructor 6">
+            </div>
+            <div class="instructor-circle instructor-7">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=face"
+                    alt="Instructor 7">
+            </div>
+            <div class="instructor-circle instructor-8">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop&crop=face"
+                    alt="Instructor 8">
+            </div>
+
+            <h2>Instructors</h2>
+            <p class="instructors-subtitle">Want to be an instructor? Apply down below.</p>
+            <button class="apply-btn">Apply to teach</button>
+        </div>
+    </section>
+
     <section id="reviews" class="reviews">
         <h2>Zarry Voices</h2>
         <p class="reviews-subtitle">At Zarry, we believe <strong>the best feedback comes from those who've lived the
@@ -990,7 +1205,7 @@
         <div class="reviews-grid">
             <div class="review-card">
                 <div class="review-header">
-                    <div class="review-avatar"><img src="media/a1.png" alt=""></div>
+                    <div class="review-avatar"><img src="media/a1.png" alt="Avatar of Everna Andreea"></div>
                     <div class="review-info">
                         <h4>Everna Andreea</h4>
                         <div class="stars">★★★★★</div>
@@ -1003,7 +1218,7 @@
 
             <div class="review-card">
                 <div class="review-header">
-                    <div class="review-avatar"><img src="media/a2.png" alt=""></div>
+                    <div class="review-avatar"><img src="media/a2.png" alt="Avatar of Sebastian Anvarro"></div>
                     <div class="review-info">
                         <h4>Sebastian Anvarro</h4>
                         <div class="stars">★★★★★</div>
@@ -1016,7 +1231,7 @@
 
             <div class="review-card">
                 <div class="review-header">
-                    <div class="review-avatar"><img src="media/a3.png" alt=""></div>
+                    <div class="review-avatar"><img src="media/a3.png" alt="Avatar of Eduardo Felugi"></div>
                     <div class="review-info">
                         <h4>Eduardo Felugi</h4>
                         <div class="stars">★★★★★</div>
@@ -1031,7 +1246,6 @@
         <button class="leave-review-btn">Leave a review</button>
     </section>
 
-    <!-- Newsletter Section -->
     <section class="newsletter">
         <div class="newsletter-container">
             <h2>Subscribe to our newsletter</h2>
@@ -1048,15 +1262,14 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-section">
-                <h3 class="logo" style="color: white; margin-bottom: 1rem;">Zarry</h3>
+                <h3 class="logo" style="color: white; margin-bottom: 1rem;"><img src="media/logo-white.png" alt=""></h3>
                 <p>© Copyright. All rights reserved.</p>
                 <div class="payment-icons">
-                    <div class="payment-icon"><img src="icons/image 11.png" alt=""></div>
-                    <div class="payment-icon"><img src="icons/Apple Pay.png" alt=""></div>
+                    <div class="payment-icon"><img src="icons/image 11.png" alt="Visa"></div>
+                    <div class="payment-icon"><img src="icons/Apple Pay.png" alt="Apple Pay"></div>
                 </div>
             </div>
 
@@ -1077,9 +1290,51 @@
             <div class="footer-section">
                 <h3>USEFUL LINKS</h3>
                 <div class="social-icons">
-                    <div class="social-icon"><img src="icons/Facebook.png" alt=""></div>
-                    <div class="social-icon"><img src="icons/Instagram.png" alt=""></div>
-                    <div class="social-icon"><img src="icons/TikTok.png" alt=""></div>
-                    <div class="social-icon"><img src="icons/WhatsApp.png" alt=""></div>
+                    <a href="#" class="social-icon"><img src="icons/Facebook.png" alt="Facebook"></a>
+                    <a href="#" class="social-icon"><img src="icons/Instagram.png" alt="Instagram"></a>
+                    <a href="#" class="social-icon"><img src="icons/TikTok.png" alt="TikTok"></a>
+                    <a href="#" class="social-icon"><img src="icons/WhatsApp.png" alt="WhatsApp"></a>
                 </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                window.scrollTo({
+                    top: element.offsetTop - document.querySelector('.header').offsetHeight, // Adjust for fixed header
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        function subscribeNewsletter(event) {
+            event.preventDefault(); // Prevent default form submission
+            alert('Thank you for subscribing to our newsletter!');
+            // Here you would typically send the email to a server
+            event.target.reset(); // Clear the form
+        }
+
+        // Hamburger menu functionality
+        const burgerMenu = document.getElementById('burger-menu');
+        const navMenu = document.getElementById('nav-menu');
+        const orderBtn = document.getElementById('order-btn');
+
+        burgerMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            orderBtn.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                orderBtn.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+
 </html>
