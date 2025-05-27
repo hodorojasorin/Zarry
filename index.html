@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #333;
+            background-color: #F5F5F5;
             overflow-x: hidden;
         }
 
@@ -87,7 +89,6 @@
         /* Hero Section */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             display: flex;
             align-items: center;
             padding: 6rem 2rem 2rem;
@@ -167,20 +168,53 @@
             animation: float 6s ease-in-out infinite;
         }
 
-        .circle:nth-child(1) { width: 80px; height: 80px; top: 10%; left: 10%; animation-delay: 0s; }
-        .circle:nth-child(2) { width: 120px; height: 120px; top: 20%; right: 15%; animation-delay: 1s; }
-        .circle:nth-child(3) { width: 60px; height: 60px; bottom: 30%; left: 20%; animation-delay: 2s; }
-        .circle:nth-child(4) { width: 100px; height: 100px; bottom: 20%; right: 10%; animation-delay: 3s; }
+        .circle:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .circle:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 20%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .circle:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 2s;
+        }
+
+        .circle:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            bottom: 20%;
+            right: 10%;
+            animation-delay: 3s;
+        }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
         }
 
         /* Why Us Section */
         .why-us {
             padding: 6rem 2rem;
-            background: white;
         }
 
         .why-us-container {
@@ -237,7 +271,7 @@
             background: white;
             padding: 1.5rem;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
 
@@ -275,48 +309,130 @@
 
         /* Instructors Section */
         .instructors {
-            padding: 6rem 2rem;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            text-align: center;
+            padding: 8rem 2rem 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .instructors-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .instructors h2 {
-            font-size: 3rem;
+            font-size: 4rem;
             color: #6B9EFF;
-            margin-bottom: 1rem;
-        }
-
-        .instructors p {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 3rem;
-        }
-
-        .instructors-grid {
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            justify-items: center;
-        }
-
-        .instructor {
-            width: 120px;
-            height: 120px;
-            background: #6B9EFF;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 0.9rem;
             text-align: center;
-            transition: transform 0.3s ease;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 10;
         }
 
-        .instructor:hover {
+        .instructors-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .instructor-circle {
+            position: absolute;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: transparent;
+            transition: all 0.4s ease;
+            animation: floatInstructors 8s ease-in-out infinite;
+        }
+
+        .instructor-circle:hover {
             transform: scale(1.1);
+            box-shadow: 0 20px 40px rgba(107, 158, 255, 0.4);
+        }
+
+        .instructor-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Positioning instructors around the text */
+        .instructor-1 {
+            width: 230px;
+            height: 230px;
+            top: 30px;
+            left: 100px;
+            animation-delay: 0s;
+        }
+
+        .instructor-2 {
+            width: 180px;
+            height: 180px;
+            top: 80px;
+            right: 150px;
+            animation-delay: 1s;
+        }
+
+        .instructor-3 {
+            width: 160px;
+            height: 160px;
+            top: 300px;
+            left: 160px;
+            animation-delay: 2s;
+        }
+
+        .instructor-4 {
+            width: 140px;
+            height: 140px;
+            top: 250px;
+            right: 60px;
+            animation-delay: 3s;
+        }
+
+        .instructor-5 {
+            width: 160px;
+            height: 160px;
+            bottom: -5px;
+            left: 420px;
+            animation-delay: 4s;
+        }
+
+        .instructor-6 {
+            width: 160px;
+            height: 160px;
+            bottom: 100px;
+            right: 120px;
+            animation-delay: 5s;
+        }
+
+        .instructor-7 {
+            width: 90px;
+            height: 90px;
+            bottom: 250px;
+            left: 200px;
+            animation-delay: 6s;
+        }
+
+        .instructor-8 {
+            width: 130px;
+            height: 130px;
+            bottom: 180px;
+            right: 200px;
+            animation-delay: 7s;
+        }
+
+        @keyframes floatInstructors {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(2deg); }
+            50% { transform: translateY(-5px) rotate(-2deg); }
+            75% { transform: translateY(-10px) rotate(1deg); }
         }
 
         .apply-btn {
@@ -329,17 +445,20 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            position: relative;
+            z-index: 10;
+            margin-top: 2rem;
         }
 
         .apply-btn:hover {
             background: #5A8AE6;
             transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(107, 158, 255, 0.3);
         }
 
         /* Courses Section */
         .courses {
             padding: 6rem 2rem;
-            background: white;
         }
 
         .courses-container {
@@ -366,7 +485,7 @@
         .course-icon {
             width: 80px;
             height: 60px;
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 8px;
             margin: 0 auto 2rem;
             display: flex;
@@ -421,7 +540,6 @@
         /* Reviews Section */
         .reviews {
             padding: 6rem 2rem;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             text-align: center;
         }
 
@@ -465,7 +583,6 @@
         .review-avatar {
             width: 50px;
             height: 50px;
-            background: rgba(255,255,255,0.3);
             border-radius: 50%;
             margin-right: 1rem;
             display: flex;
@@ -586,7 +703,7 @@
 
         .footer-section p,
         .footer-section a {
-            color: rgba(255,255,255,0.8);
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             margin-bottom: 0.5rem;
             display: block;
@@ -598,14 +715,13 @@
 
         .social-icons {
             display: flex;
-            gap: 1rem;
+            gap: 5px;
             margin-top: 1rem;
         }
 
         .social-icon {
             width: 40px;
             height: 40px;
-            background: rgba(255,255,255,0.2);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -614,19 +730,18 @@
         }
 
         .social-icon:hover {
-            background: rgba(255,255,255,0.3);
+            background: rgba(255, 255, 255, 0.3);
         }
 
         .payment-icons {
             display: flex;
-            gap: 1rem;
+            gap: 35px;
             margin-top: 1rem;
         }
 
         .payment-icon {
             width: 50px;
             height: 30px;
-            background: rgba(255,255,255,0.2);
             border-radius: 5px;
             display: flex;
             align-items: center;
@@ -638,8 +753,8 @@
             text-align: center;
             margin-top: 2rem;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            color: rgba(255,255,255,0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.8);
         }
 
         /* Mobile Responsiveness */
@@ -693,6 +808,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
@@ -714,15 +830,16 @@
         <div class="circle"></div>
         <div class="circle"></div>
         <div class="circle"></div>
-        
+
         <div class="hero-container">
             <div class="hero-content">
                 <h1>Learn to code,<br>Build the Future!</h1>
-                <p>Interactive online programming courses for kids and teens, designed to make learning fun, creative, and future-ready.</p>
+                <p>Interactive online programming courses for kids and teens, designed to make learning fun, creative,
+                    and future-ready.</p>
                 <button class="start-btn" onclick="scrollToSection('courses')">Start Learning Now</button>
             </div>
             <div class="hero-image">
-                    <img src="media/mainkid.png" alt="">
+                <img src="media/home boy.svg" alt="">
             </div>
         </div>
     </section>
@@ -732,20 +849,21 @@
         <div class="why-us-container">
             <div class="why-us-content">
                 <h2>Why us?</h2>
-                <p>Why Zarry? simply because <span class="highlight">we make coding fun, simple, and exciting for kids and teens of all ages.</span></p>
-                
-                <p>Our platform is designed to feel like a playground for your imagination. No boring lectures here — just colorful lessons, creative challenges. You'll learn how to think like a programmer, solve problems like an inventor, and express yourself like a digital artist.</p>
-                
-                <p>That's why Zarry is more than just a course — it's a community, a launchpad, and a space where your ideas come to life.</p>
-                <p><span class="highlight">Join us, and let's build the future together</span> — one line of code at a time.</p>
+                <p>Why Zarry? simply because <span class="highlight">we make coding fun, simple, and exciting for kids
+                        and teens of all ages.</span></p>
+
+                <p>Our platform is designed to feel like a playground for your imagination. No boring lectures here —
+                    just colorful lessons, creative challenges. You'll learn how to think like a programmer, solve
+                    problems like an inventor, and express yourself like a digital artist.</p>
+
+                <p>That's why Zarry is more than just a course — it's a community, a launchpad, and a space where your
+                    ideas come to life.</p>
+                <p><span class="highlight">Join us, and let's build the future together</span> — one line of code at a
+                    time.</p>
             </div>
             <div class="why-us-image">
                 <div class="why-us-image-placeholder">
-                    [Why Us Image Placeholder - Smiling student]
-                    <div class="stats-overlay">
-                        <h3>120+</h3>
-                        <p>Professional<br>Teachers</p>
-                    </div>
+                    <img src="media/whyuscard.png" alt="">
                 </div>
             </div>
         </div>
@@ -771,20 +889,48 @@
 
     <!-- Instructors Section -->
     <section id="instructors" class="instructors">
-        <h2>Instructors</h2>
-        <p>Want to be an instructor? apply down below.</p>
-        
-        <div class="instructors-grid">
-            <div class="instructor">[Instructor 1]</div>
-            <div class="instructor">[Instructor 2]</div>
-            <div class="instructor">[Instructor 3]</div>
-            <div class="instructor">[Instructor 4]</div>
-            <div class="instructor">[Instructor 5]</div>
-            <div class="instructor">[Instructor 6]</div>
+        <div class="instructors-container">
+            <!-- Instructor circles positioned around the text -->
+            <div class="instructor-circle instructor-1">
+                <img src="media/i1.png"
+                    alt="Instructor 1">
+            </div>
+            <div class="instructor-circle instructor-2">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face"
+                    alt="Instructor 2">
+            </div>
+            <div class="instructor-circle instructor-3">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face"
+                    alt="Instructor 3">
+            </div>
+            <div class="instructor-circle instructor-4">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face"
+                    alt="Instructor 4">
+            </div>
+            <div class="instructor-circle instructor-5">
+                <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=200&h=200&fit=crop&crop=face"
+                    alt="Instructor 5">
+            </div>
+            <div class="instructor-circle instructor-6">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=face"
+                    alt="Instructor 6">
+            </div>
+            <div class="instructor-circle instructor-7">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=face"
+                    alt="Instructor 7">
+            </div>
+            <div class="instructor-circle instructor-8">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop&crop=face"
+                    alt="Instructor 8">
+            </div>
+
+            <!-- Central content -->
+            <h2>Instructors</h2>
+            <p class="instructors-subtitle">Want to be an instructor? Apply down below.</p>
+            <button class="apply-btn">Apply to teach</button>
         </div>
-        
-        <button class="apply-btn">Apply to teach</button>
     </section>
+
 
     <!-- Courses Section -->
     <section id="courses" class="courses">
@@ -802,7 +948,7 @@
                 <div class="course-price">$19 / lesson</div>
                 <button class="book-btn">Book a Lesson</button>
             </div>
-            
+
             <div class="course-card">
                 <div class="course-icon">🖥️</div>
                 <h3>Level Code</h3>
@@ -816,7 +962,7 @@
                 <div class="course-price">$29 / lesson</div>
                 <button class="book-btn">Book a Lesson</button>
             </div>
-            
+
             <div class="course-card">
                 <div class="course-icon">🌐</div>
                 <h3>Code Craft</h3>
@@ -836,46 +982,52 @@
     <!-- Reviews Section -->
     <section id="reviews" class="reviews">
         <h2>Zarry Voices</h2>
-        <p class="reviews-subtitle">At Zarry, we believe <strong>the best feedback comes from those who've lived the experience.</strong> From building their first games to launching real websites, our young coders share how fun, easy, and exciting learning to program can be. Read their stories, reviews, and proud moments — and get inspired to start your own journey!</p>
-        
+        <p class="reviews-subtitle">At Zarry, we believe <strong>the best feedback comes from those who've lived the
+                experience.</strong> From building their first games to launching real websites, our young coders share
+            how fun, easy, and exciting learning to program can be. Read their stories, reviews, and proud moments — and
+            get inspired to start your own journey!</p>
+
         <div class="reviews-grid">
             <div class="review-card">
                 <div class="review-header">
-                    <div class="review-avatar">[Avatar]</div>
+                    <div class="review-avatar"><img src="media/a1.png" alt=""></div>
                     <div class="review-info">
                         <h4>Everna Andreea</h4>
                         <div class="stars">★★★★★</div>
                         <div class="date">3 days ago</div>
                     </div>
                 </div>
-                <p class="review-text">I made my own game and showed it to all my friends! The challenges are hard, but in a good way. It's fun, not boring like school stuff.</p>
+                <p class="review-text">I made my own game and showed it to all my friends! The challenges are hard, but
+                    in a good way. It's fun, not boring like school stuff.</p>
             </div>
-            
+
             <div class="review-card">
                 <div class="review-header">
-                    <div class="review-avatar">[Avatar]</div>
+                    <div class="review-avatar"><img src="media/a2.png" alt=""></div>
                     <div class="review-info">
                         <h4>Sebastian Anvarro</h4>
                         <div class="stars">★★★★★</div>
                         <div class="date">2 weeks ago</div>
                     </div>
                 </div>
-                <p class="review-text">Coding is way cooler than I thought! I love how the lessons feel like mini adventures. I finally understand what a function does — and it's fun!</p>
+                <p class="review-text">Coding is way cooler than I thought! I love how the lessons feel like mini
+                    adventures. I finally understand what a function does — and it's fun!</p>
             </div>
-            
+
             <div class="review-card">
                 <div class="review-header">
-                    <div class="review-avatar">[Avatar]</div>
+                    <div class="review-avatar"><img src="media/a3.png" alt=""></div>
                     <div class="review-info">
                         <h4>Eduardo Felugi</h4>
                         <div class="stars">★★★★★</div>
                         <div class="date">1 month ago</div>
                     </div>
                 </div>
-                <p class="review-text">I used to think coding was hard, but now I actually look forward to it! I made my own quiz game and even added sound effects — it feels like magic!</p>
+                <p class="review-text">I used to think coding was hard, but now I actually look forward to it! I made my
+                    own quiz game and even added sound effects — it feels like magic!</p>
             </div>
         </div>
-        
+
         <button class="leave-review-btn">Leave a review</button>
     </section>
 
@@ -883,13 +1035,16 @@
     <section class="newsletter">
         <div class="newsletter-container">
             <h2>Subscribe to our newsletter</h2>
-            <p>Subscribe to our newsletter and be the first to get exclusive <strong>promo codes, early access to new courses, and fun coding tips!</strong> Whether you're a beginner or already coding, our surprises are too good to miss.</p>
-            
+            <p>Subscribe to our newsletter and be the first to get exclusive <strong>promo codes, early access to new
+                    courses, and fun coding tips!</strong> Whether you're a beginner or already coding, our surprises
+                are too good to miss.</p>
+
             <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
                 <input type="email" placeholder="Email address" required>
                 <button type="submit" class="subscribe-btn">Subscribe</button>
             </form>
-            <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">You can unsubscribe from the newsletter at any time.</p>
+            <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">You can unsubscribe from the newsletter at any
+                time.</p>
         </div>
     </section>
 
@@ -900,24 +1055,31 @@
                 <h3 class="logo" style="color: white; margin-bottom: 1rem;">Zarry</h3>
                 <p>© Copyright. All rights reserved.</p>
                 <div class="payment-icons">
-                    <div class="payment-icon">MC</div>
-                    <div class="payment-icon">💳</div>
+                    <div class="payment-icon"><img src="icons/image 11.png" alt=""></div>
+                    <div class="payment-icon"><img src="icons/Apple Pay.png" alt=""></div>
                 </div>
             </div>
-            
+
             <div class="footer-section">
                 <h3>ABOUT COMPANY</h3>
                 <a href="#">hello@zarrycoding.com</a>
                 <a href="#">3rd Flooren Street, LA</a>
                 <a href="#">+123 456 789</a>
             </div>
-            
+
             <div class="footer-section">
                 <h3>OUR SERVICES</h3>
                 <a href="#">Terms & Conditions</a>
                 <a href="#">Careers</a>
                 <a href="#">FAQ</a>
             </div>
-            
+
             <div class="footer-section">
-                <h3>
+                <h3>USEFUL LINKS</h3>
+                <div class="social-icons">
+                    <div class="social-icon"><img src="icons/Facebook.png" alt=""></div>
+                    <div class="social-icon"><img src="icons/Instagram.png" alt=""></div>
+                    <div class="social-icon"><img src="icons/TikTok.png" alt=""></div>
+                    <div class="social-icon"><img src="icons/WhatsApp.png" alt=""></div>
+                </div>
+</html>
