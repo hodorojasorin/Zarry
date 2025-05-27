@@ -49,7 +49,8 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 2rem;
-            position: relative; /* Needed for absolute positioning of mobile menu */
+            position: relative;
+            /* Needed for absolute positioning of mobile menu */
         }
 
         .logo {
@@ -62,7 +63,8 @@
         }
 
         .logo img {
-            height: 40px; /* Adjust logo size */
+            height: 40px;
+            /* Adjust logo size */
             margin-right: 5px;
         }
 
@@ -105,11 +107,13 @@
 
         /* Hamburger Menu Styles */
         .burger-menu {
-            display: none; /* Hidden by default */
+            display: none;
+            /* Hidden by default */
             font-size: 2rem;
             cursor: pointer;
             color: var(--primary-color);
-            z-index: 1001; /* Ensure it's above other elements */
+            z-index: 1001;
+            /* Ensure it's above other elements */
         }
 
         /* Hero Section */
@@ -117,7 +121,8 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 8rem 2rem 2rem; /* Adjusted top padding for fixed header */
+            padding: 8rem 2rem 2rem;
+            /* Adjusted top padding for fixed header */
             position: relative;
             overflow: hidden;
             background-color: var(--background-color);
@@ -168,7 +173,8 @@
         /* Floating circles */
         .circle {
             position: absolute;
-            background: rgba(107, 158, 255, 0.15); /* Lighter opacity */
+            background: rgba(107, 158, 255, 0.15);
+            /* Lighter opacity */
             border-radius: 50%;
             animation: float 6s ease-in-out infinite;
         }
@@ -298,7 +304,8 @@
             max-width: 1200px;
             margin: 0 auto;
             position: relative;
-            height: 600px; /* Needs adjustment for smaller screens */
+            height: 600px;
+            /* Needs adjustment for smaller screens */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -392,7 +399,8 @@
         .instructor-7 {
             width: 150px;
             height: 150px;
-            bottom: 500px; /* This needs to be relative or adjusted for height */
+            bottom: 500px;
+            /* This needs to be relative or adjusted for height */
             left: 400px;
             animation-delay: 6s;
         }
@@ -584,9 +592,10 @@
             align-items: center;
             justify-content: center;
             font-size: 0.8rem;
-            overflow: hidden; /* Ensure image stays within circle */
+            overflow: hidden;
+            /* Ensure image stays within circle */
         }
-        
+
         .review-avatar img {
             width: 100%;
             height: 100%;
@@ -651,12 +660,14 @@
             gap: 1rem;
             margin-top: 2rem;
             justify-content: center;
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            flex-wrap: wrap;
+            /* Allow wrapping on smaller screens */
         }
 
         .newsletter-form input {
             flex: 1;
-            min-width: 250px; /* Ensure input is not too small */
+            min-width: 250px;
+            /* Ensure input is not too small */
             max-width: 300px;
             padding: 1rem;
             border: 2px solid #e0e0e0;
@@ -731,21 +742,17 @@
             align-items: center;
             justify-content: center;
             transition: background 0.3s ease;
-            background: rgba(255, 255, 255, 0.1);
         }
+
         .social-icon img {
-            width: 24px; /* Adjust icon size */
-            height: 24px;
-        }
-
-
-        .social-icon:hover {
-            background: rgba(255, 255, 255, 0.3);
+            width: 30px;
+            height: 30px;
         }
 
         .payment-icons {
             display: flex;
-            gap: 15px; /* Reduced gap */
+            gap: 15px;
+            /* Reduced gap */
             margin-top: 1rem;
         }
 
@@ -757,14 +764,18 @@
             align-items: center;
             justify-content: center;
             font-size: 0.8rem;
-            background: rgba(255, 255, 255, 0.1); /* Added background for visibility */
         }
+
         .payment-icon img {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
         }
 
+        .p-icon {
+            width: 150px;
+            height: 150px;
+        }
 
         .footer-bottom {
             text-align: center;
@@ -791,11 +802,14 @@
                 font-size: 3rem;
             }
 
-            .hero-image, .why-us-image {
-                order: -1; /* Puts image above content on smaller screens */
+            .hero-image,
+            .why-us-image {
+                order: -1;
+                /* Puts image above content on smaller screens */
             }
 
-            .hero-image img, .why-us-image-placeholder img {
+            .hero-image img,
+            .why-us-image-placeholder img {
                 max-width: 80%;
                 height: auto;
             }
@@ -806,54 +820,111 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 2rem;
             }
-            
+
             .course-card {
                 padding: 2rem 1.5rem;
             }
 
             .instructors-container {
-                height: 400px; /* Adjust height for smaller screens */
+                height: 400px;
+                /* Adjust height for smaller screens */
             }
+
             .instructors h2 {
                 font-size: 3rem;
             }
 
             /* Adjust instructor circle sizes and positions for tablets */
-            .instructor-1 { width: 180px; height: 180px; top: 20px; left: 5%; }
-            .instructor-2 { width: 140px; height: 140px; top: 0px; right: 5%; }
-            .instructor-3 { width: 120px; height: 120px; bottom: 20px; left: 10%; }
-            .instructor-4 { width: 100px; height: 100px; top: 150px; right: 10%; }
-            .instructor-5 { width: 120px; height: 120px; bottom: 50px; left: 40%; }
-            .instructor-6 { width: 120px; height: 120px; bottom: 80px; right: 5%; }
-            .instructor-7 { width: 110px; height: 110px; top: 50px; left: 30%; }
-            .instructor-8 { width: 90px; height: 90px; bottom: 30px; right: 30%; }
+            .instructor-1 {
+                width: 180px;
+                height: 180px;
+                top: 20px;
+                left: 5%;
+            }
+
+            .instructor-2 {
+                width: 140px;
+                height: 140px;
+                top: 0px;
+                right: 5%;
+            }
+
+            .instructor-3 {
+                width: 120px;
+                height: 120px;
+                bottom: 20px;
+                left: 10%;
+            }
+
+            .instructor-4 {
+                width: 100px;
+                height: 100px;
+                top: 150px;
+                right: 10%;
+            }
+
+            .instructor-5 {
+                width: 120px;
+                height: 120px;
+                bottom: 50px;
+                left: 40%;
+            }
+
+            .instructor-6 {
+                width: 120px;
+                height: 120px;
+                bottom: 80px;
+                right: 5%;
+            }
+
+            .instructor-7 {
+                width: 110px;
+                height: 110px;
+                top: 50px;
+                left: 30%;
+            }
+
+            .instructor-8 {
+                width: 90px;
+                height: 90px;
+                bottom: 30px;
+                right: 30%;
+            }
 
             .footer-container {
                 grid-template-columns: repeat(2, 1fr);
             }
 
             .newsletter-form {
-                flex-direction: row; /* Keep it row if possible */
+                flex-direction: row;
+                /* Keep it row if possible */
                 justify-content: center;
             }
         }
 
 
         @media (max-width: 768px) {
+
             .nav-menu,
             .order-btn {
-                display: none; /* Hide default nav and button */
+                display: none;
+                /* Hide default nav and button */
             }
 
             .burger-menu {
-                display: block; /* Show burger menu */
-                order: -1; /* Place it before the logo */
+                display: block;
+                /* Show burger menu */
+                order: -1;
+                /* Place it before the logo */
             }
 
             .nav-container {
-                flex-wrap: wrap; /* Allow items to wrap */
-                justify-content: space-between; /* Space out burger and logo */
-                align-items: flex-start; /* Align items to the start when wrapped */
+                flex-wrap: wrap;
+                /* Allow items to wrap */
+                justify-content: space-between;
+                /* Space out burger and logo */
+                align-items: flex-start;
+                /* Align items to the start when wrapped */
             }
 
             .nav-menu.active {
@@ -863,34 +934,42 @@
                 background-color: rgba(245, 245, 245, 0.95);
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
                 position: absolute;
-                top: 100%; /* Position below the header */
+                top: 100%;
+                /* Position below the header */
                 left: 0;
                 padding: 1rem 2rem;
                 gap: 1rem;
                 border-top: 1px solid #eee;
             }
 
-            .nav-menu.active + .order-btn { /* Selects the order-btn immediately following .nav-menu.active */
+            .nav-menu.active+.order-btn {
+                /* Selects the order-btn immediately following .nav-menu.active */
                 display: block;
-                width: calc(100% - 4rem); /* Account for padding */
-                margin: 0 2rem 1rem; /* Add margin below menu */
+                width: calc(100% - 4rem);
+                /* Account for padding */
+                margin: 0 2rem 1rem;
+                /* Add margin below menu */
                 text-align: center;
             }
 
 
             .logo {
                 font-size: 1.8rem;
-                flex-grow: 1; /* Allow logo to take available space */
+                flex-grow: 1;
+                /* Allow logo to take available space */
                 text-align: center;
                 justify-content: center;
             }
+
             .nav-container .logo {
-                margin-right: 0; /* Remove margin from logo in mobile header */
+                margin-right: 0;
+                /* Remove margin from logo in mobile header */
             }
 
 
             .hero {
-                padding-top: 6rem; /* Less padding on small screens */
+                padding-top: 6rem;
+                /* Less padding on small screens */
             }
 
             .hero-content h1 {
@@ -906,29 +985,37 @@
                 font-size: 1rem;
             }
 
-            .why-us h2, .reviews h2 {
+            .why-us h2,
+            .reviews h2 {
                 font-size: 2.5rem;
             }
 
             .stats-container,
             .courses-container,
             .reviews-grid {
-                grid-template-columns: 1fr; /* Single column layout */
+                grid-template-columns: 1fr;
+                /* Single column layout */
             }
 
             .instructor-circle {
-                display: none; /* Hide instructor circles on very small screens to simplify layout */
+                display: none;
+                /* Hide instructor circles on very small screens to simplify layout */
             }
+
             .instructors-container {
-                height: auto; /* Allow height to adjust */
+                height: auto;
+                /* Allow height to adjust */
                 padding-bottom: 2rem;
             }
+
             .instructors h2 {
                 font-size: 2.5rem;
             }
+
             .instructors-subtitle {
                 font-size: 1rem;
             }
+
             .apply-btn {
                 margin-top: 1rem;
             }
@@ -941,18 +1028,22 @@
 
             .newsletter-form input {
                 max-width: 100%;
-                width: 100%; /* Take full width */
+                width: 100%;
+                /* Take full width */
             }
 
             .footer-container {
-                grid-template-columns: 1fr; /* Single column for footer */
+                grid-template-columns: 1fr;
+                /* Single column for footer */
                 text-align: center;
             }
 
             .footer-section {
                 margin-bottom: 1.5rem;
             }
-            .social-icons, .payment-icons {
+
+            .social-icons,
+            .payment-icons {
                 justify-content: center;
             }
         }
@@ -960,7 +1051,8 @@
         /* Extra small devices (portrait phones, less than 576px) */
         @media (max-width: 576px) {
             .nav-container {
-                flex-direction: row; /* Keep as row for burger and logo */
+                flex-direction: row;
+                /* Keep as row for burger and logo */
                 justify-content: space-between;
                 align-items: center;
             }
@@ -969,7 +1061,7 @@
                 font-size: 1.6rem;
                 margin-bottom: 0;
             }
-            
+
             .order-btn {
                 padding: 0.6rem 1.2rem;
             }
@@ -977,17 +1069,20 @@
             .hero-content h1 {
                 font-size: 2rem;
             }
+
             .hero-image img {
                 max-width: 90%;
             }
 
-            .why-us h2, .reviews h2 {
+            .why-us h2,
+            .reviews h2 {
                 font-size: 2rem;
             }
 
             .stat-item h3 {
                 font-size: 1.8rem;
             }
+
             .stat-item p {
                 font-size: 1rem;
             }
@@ -995,9 +1090,11 @@
             .course-card {
                 padding: 2rem 1rem;
             }
+
             .course-card h3 {
                 font-size: 1.5rem;
             }
+
             .course-price {
                 font-size: 1.8rem;
             }
@@ -1005,12 +1102,15 @@
             .review-card {
                 padding: 1.5rem;
             }
+
             .review-info h4 {
                 font-size: 1rem;
             }
+
             .review-info .stars {
                 font-size: 0.9rem;
             }
+
             .review-text {
                 font-size: 0.9rem;
             }
@@ -1028,7 +1128,8 @@
 
         /* Section spacing */
         section {
-            scroll-margin-top: 80px; /* Offset for fixed header */
+            scroll-margin-top: 80px;
+            /* Offset for fixed header */
         }
     </style>
 </head>
@@ -1112,7 +1213,7 @@
     <section id="courses" class="courses">
         <div class="courses-container">
             <div class="course-card">
-                <div class="course-icon">💻</div>
+                <img src="media/Mac Mini.png" alt="">
                 <h3>Code Quest</h3>
                 <div class="age">7 - 11 years old</div>
                 <ul class="course-features">
@@ -1126,7 +1227,7 @@
             </div>
 
             <div class="course-card">
-                <div class="course-icon">🖥️</div>
+                <img src="media/Monitor.png" alt="">
                 <h3>Level Code</h3>
                 <div class="age">12 - 14 years old</div>
                 <ul class="course-features">
@@ -1140,7 +1241,7 @@
             </div>
 
             <div class="course-card">
-                <div class="course-icon">🌐</div>
+                <img src="media/Browse page.png" alt="">
                 <h3>Code Craft</h3>
                 <div class="age">15 - 17 years old</div>
                 <ul class="course-features">
@@ -1161,31 +1262,31 @@
                 <img src="media/i1.png" alt="Instructor 1">
             </div>
             <div class="instructor-circle instructor-2">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face"
+                <img src="media/i2.png"
                     alt="Instructor 2">
             </div>
             <div class="instructor-circle instructor-3">
-                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face"
+                <img src="media/i3.png"
                     alt="Instructor 3">
             </div>
             <div class="instructor-circle instructor-4">
-                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face"
+                <img src="media/i4.png"
                     alt="Instructor 4">
             </div>
             <div class="instructor-circle instructor-5">
-                <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=200&h=200&fit=crop&crop=face"
+                <img src="media/i5.png"
                     alt="Instructor 5">
             </div>
             <div class="instructor-circle instructor-6">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=face"
+                <img src="media/i6.png"
                     alt="Instructor 6">
             </div>
             <div class="instructor-circle instructor-7">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=face"
+                <img src="media/i7.png"
                     alt="Instructor 7">
             </div>
             <div class="instructor-circle instructor-8">
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop&crop=face"
+                <img src="media/i8.png"
                     alt="Instructor 8">
             </div>
 
@@ -1269,7 +1370,7 @@
                 <p>© Copyright. All rights reserved.</p>
                 <div class="payment-icons">
                     <div class="payment-icon"><img src="icons/image 11.png" alt="Visa"></div>
-                    <div class="payment-icon"><img src="icons/Apple Pay.png" alt="Apple Pay"></div>
+                    <div class="payment-icon" class="p-icon"><img src="icons/Apple Pay.png" alt="Apple Pay"></div>
                 </div>
             </div>
 
