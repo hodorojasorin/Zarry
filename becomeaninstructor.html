@@ -33,6 +33,12 @@
             overflow-x: hidden;
         }
 
+        .form-group.full-width,
+        .form-grid {
+            margin-bottom: 1.5rem;
+        }
+
+
         .header {
             position: fixed;
             top: 0;
@@ -154,9 +160,12 @@
         }
 
         @keyframes float {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0px) rotate(0deg);
             }
+
             50% {
                 transform: translateY(-20px) rotate(180deg);
             }
@@ -352,7 +361,8 @@
                 <div class="form-grid">
                     <div class="form-group">
                         <input type="text" class="form-input" placeholder="Location" required>
-                        <span class="upload-icon" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%);">📍</span>
+                        <span class="upload-icon"
+                            style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%);">📍</span>
                     </div>
                     <div class="form-group">
                         <input type="email" class="form-input" placeholder="Email address" required>
@@ -379,7 +389,8 @@
                 </div>
 
                 <div class="form-group full-width">
-                    <textarea class="form-input" placeholder="What programming languages can you teach?" required></textarea>
+                    <textarea class="form-input" placeholder="What programming languages can you teach?"
+                        required></textarea>
                 </div>
 
                 <div class="form-group full-width">
@@ -412,20 +423,20 @@
     </main>
 
     <script>
-        document.getElementById('instructor-form').addEventListener('submit', function(e) {
+        document.getElementById('instructor-form').addEventListener('submit', function (e) {
             e.preventDefault();
             alert('Thank you for your application! We will review it and get back to you soon.');
         });
 
         // File input handling
-        document.getElementById('cv-upload').addEventListener('change', function(e) {
+        document.getElementById('cv-upload').addEventListener('change', function (e) {
             const label = document.querySelector('label[for="cv-upload"] span:first-child');
             if (e.target.files.length > 0) {
                 label.textContent = e.target.files[0].name;
             }
         });
 
-        document.getElementById('video-upload').addEventListener('change', function(e) {
+        document.getElementById('video-upload').addEventListener('change', function (e) {
             const label = document.querySelector('label[for="video-upload"] span:first-child');
             if (e.target.files.length > 0) {
                 label.textContent = e.target.files[0].name;
