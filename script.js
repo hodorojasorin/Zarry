@@ -32,3 +32,4 @@ function scrollToSection(id) {
                 orderBtn.classList.remove('active');
             });
         });
+

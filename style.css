@@ -540,6 +540,7 @@ body {
     border-radius: 25px;
     font-weight: 600;
     cursor: pointer;
+    text-decoration: none;
     transition: all 0.3s ease;
 }
 
@@ -630,6 +631,10 @@ body {
     line-height: 1.6;
 }
 
+.apply-btn {
+    text-decoration: none;
+}
+
 .leave-review-btn {
     background: var(--primary-color);
     color: var(--white-color);
@@ -639,6 +644,7 @@ body {
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
+    text-decoration: none;
     transition: all 0.3s ease;
 }
 
